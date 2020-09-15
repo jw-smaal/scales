@@ -51,6 +51,12 @@
 #define MAJOR_SEVENTH       GROTE_SEPTIEM       // 11
 #define PERFECT_OCTAVE      OCTAAF              // 12
 
+enum interVal {
+	H = 1, 
+	W = 2, 
+	WH = 3,
+	WW = 4	
+};
 
 enum scaleKinds {
 	CHROMATIC,
