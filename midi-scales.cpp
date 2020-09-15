@@ -2,7 +2,7 @@
  * @file midi-scales.cpp
  * @author Jan-Willem Smaal <usenet@gispen.org> 
  * @date 3/9/2020 
- * @copyright BSD 
+ * @copyright APACHE 2.0
  */
 #define JWS_DEBUG 1
 #ifdef JWS_DEBUG 
