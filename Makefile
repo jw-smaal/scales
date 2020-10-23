@@ -15,6 +15,6 @@ midi-scales-testprogram: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 clean:
-	rm -f *.o *~ a.out *~ 
+	rm -f *.o *~ a.out *~ midi-scales-testprogram
 
 # EOF 

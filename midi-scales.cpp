@@ -13,7 +13,7 @@
 #include <iostream>
 using namespace std;
 
-#include "midi-scales.hpp"
+#include "midi-scales.h"
 
 /* 
  * This is just here to trace 'FACADE' in the flash 
