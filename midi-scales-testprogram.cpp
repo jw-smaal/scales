@@ -18,8 +18,8 @@ int main()
 
 	// Since a enum is just an int we can cast 
 	// i know there is better way to do this in C++ 
-	for(j = CHROMATIC; j <= MINOR_PENTATONIC; j++) {
-		Scale scl((enum scaleKinds)j, rootnote);
+	for(j = (int)Scale::ScaleKinds::CHROMATIC; j <= (int)Scale::ScaleKinds::MINOR_PENTATONIC; j++) {
+		Scale scl((Scale::ScaleKinds)j, rootnote);
 		for(i = 0; i < scl.modes; i++) {
 			scl.SetMode(i); 		
 			std::cout << scl.scaleName 
@@ -28,7 +28,7 @@ int main()
 					  << std::endl;
 			std::cout << scl.Text(rootnote, true) << ": ";  
 			std::cout << scl.Text(rootnote, false) << ": ";  
-			Chord chord(&scl, Chord::BASIC, rootnote);
+			Chord chord(&scl, Chord::Kinds::BASIC, rootnote);
 			std::cout << chord.Text(true) << ": ";  
 			std::cout << chord.Text(false); 
 			std::cout << std::endl;  
@@ -37,7 +37,7 @@ int main()
 		if(scl.modes == 0 ) {
 			std::cout << scl.Text(rootnote, true) << std::endl;  
 			std::cout << scl.Text(rootnote, false) << std::endl;  
-			Chord chord(&scl, Chord::BASIC, rootnote);
+			Chord chord(&scl, Chord::Kinds::BASIC, rootnote);
 			std::cout << "Chord " << chord.Text(true); 
 			std::cout << "Chord " << chord.Text(false); 
 			std::cout << std::endl;

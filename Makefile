@@ -3,16 +3,16 @@
 # @Date: 3/9/2020 
 
 CC=c++
-CFLAGS=-Wall -Wc++11-extensions  
+CFLAGS=-std=c++11
 DEPS = midi-scales.h
 OBJ = midi-scales-testprogram.o midi-scales.o 
 
 
 %.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+	$(CC) -std=c++11 -c -o $@ $< $(CFLAGS)
 
 midi-scales-testprogram: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+	$(CC) -std=c++11 -o $@ $^ $(CFLAGS)
 
 clean:
 	rm -f *.o *~ a.out *~ midi-scales-testprogram

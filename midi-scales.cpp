@@ -15,210 +15,6 @@ using namespace std;
 
 #include "midi-scales.h"
 
-/* 
- * This is just here to trace 'FACADE' in the flash 
- */
- uint8_t  facade[3]  = {
-    0xfa,0xca,0xde
-};
-
-
-/*
- * Scales are listed below as arrays of
- * uint8_t indicating the either a 1/2 step as 1
- * or a whole step as 2.
- * minor 3'rd as 3
- */
-/*
- * CHROMATIC Scale 12 note
- */
- uint8_t  chromatic[12]  = {
-    H,H,H,H,H,H,H,H,H,H,H,H,
-};
-
-/*
- * OCTATONIC 8 notes (of course)
- */
- uint8_t  octatonic[2][8]  = {
-    {H,W,H,W,H,W,H,W},
-    {W,H,W,H,W,H,W,H}
-};
-
-/*
- * Dominant Diminished (Dom13, b9,#9, b5)   8 note scale
- * same as "first mode of OCTATONIC" see above
- */
- uint8_t  dominant_diminished[8]  = {
-    H,W,H,W,H,W,H,W
-};
-
-/*
- * Diminished (Dim7, Maj/b9)  8 note scale
- * same as "second mode of OCTATONIC" see above
- */
- uint8_t  diminished[8]  = {
-    W,H,W,H,W,H,W,H
-};
-
-
-/*
- * HEPTATONIC scales used by the
- * majority of western music
- */
-
-/*
- * MAJOR Scale modes  7 notes
- */
-/* Be aware when putting these things in ORY 
- * we need a MACRO to access them e.g. like below
- * uint8_t (*scale)[7] = pgm_read_ptr(&major[0]);  
- */
- uint8_t major_s[7][7]  = {
-    {W,W,H,W,W,W,H}, // IONIAN
-    {W,H,W,W,W,H,W}, // DORIAN
-    {H,W,W,W,H,W,W}, // PHRYGIAN
-    {W,W,W,H,W,W,H}, // LYDIAN
-    {W,W,H,W,W,H,W}, // MIXOLYDIAN
-    {W,H,W,W,H,W,W}, // AEOLIAN
-    {H,W,W,H,W,W,W}  // LOCRIAN
-};	
-
-/*
- * MINOR Scale modes  7 notes
- */
- uint8_t  minor_s[7][7]  = {
-    {W,H,W,W,H,W,W}, // AEOLIAN
-    {H,W,W,H,W,W,W}, // LOCRIAN
-    {W,W,H,W,W,W,H}, // IONIAN
-    {W,H,W,W,W,H,W}, // DORIAN
-    {H,W,W,W,H,W,W}, // PHRYGIAN
-    {W,W,W,H,W,W,H}, // LYDIAN
-    {W,W,H,W,W,H,W} // MIXOLYDIAN
-};
-
-/*
- * MELODIC MINOR Scale modes  7 notes
- */
- uint8_t  melodic_minor[7][7]  = {
-    {W,H,W,W,W,W,H}, // Melodic minor     (minor major7)
-    {H,W,W,W,W,H,W}, // DORIAN bW         (minor7 sus4 b9)
-    {W,W,W,W,H,W,H}, // LYDIAN augmented  (major7 #4 #5)
-    {W,W,W,H,W,H,W}, // MIXOLYDIAN #HH    (dominant7 b5)
-    {W,W,H,W,H,W,W}, // MIXOLYDIAN b6     (dominant7 b6)
-    {W,H,W,H,W,W,W}, // LOCRIAN natural 9 (minor9 b6)
-    {H,W,H,W,W,W,W}  // Altered Dominant  (dominant7, #9, b5, #5)
-};
-
-/*
- * HARMONIC MINOR Scale modes  7 notes
- */
- uint8_t  harmonic_minor[7][7]  = {
-    {W,H,W,W,H,WH,H}, // Harmonic minor    (minor major7)
-    {H,W,W,H,WH,H,W}, // LOCRIAN Nat.6     (minor7 b5)
-    {W,W,H,WH,H,W,H}, // IONIAN Augmented  (major7 sus4, #5)
-    {W,H,WH,H,W,H,W}, // DORIAN #HH        (minor7 #HH)
-    {H,WH,H,W,H,W,W}, // PHRYGIAN major    (dominant7 sus4, b9, #5
-    {WH,H,W,H,W,W,H}, // LYDIAN #9         (major7 #9,#HH)
-    {H,W,H,W,W,H,WH} // ALTERED DOM bb7   (dim7)
-};
-
-/*
- * Gypsy scale
- */
- uint8_t  gypsy[7]   = 	{
-    W,H,WH,H,H,WH,H
-};
-
-
-/*
- * Symetrical scale
- */
- uint8_t  symetrical[7]  = {
-    H,W,W,WH,H,H,W
-};
-
-/*
- * Enigmatic scale
- */
- uint8_t  enigmatic[7]  = {
-    H,WH,W,W,W,H,H
-};
-
-/*
- * Arabian scale
- */
- uint8_t  arabian[7]  = {
-    W,W,H,H,W,W,W
-};
-
-/*
- * Hungarian scale
- */
- uint8_t  hungarian[7]  = {
-    WH,H,W,H,W,H,W
-};
-
-/*
- * Whole tone (Dom7 #5, b6)   6 note scale
- */
- uint8_t  whole_tone[6]  = {
-    W,W,W,W,W,W
-};
-//  uint8_t *hexatonic  = whole_tone;
-
-	
-/*
- * Augmented (Aug)   6 note scale
- * (two modes? how does one call this second one then)
- */
- uint8_t  augmented[2][6]  = {
-    {WH,H,WH,H,WH,H},
-    {H,WH,H,WH,H,WH}
-};
-
-/*
- * Blues major  6 note scale
- */
- uint8_t  blues_major[6]  = {
-    W,H,H,WH,W,WH
-};
-
-/*
- * Blues minor  6 note scale
- * not sure if these are called "modes"
- */
- uint8_t  blues_minor[6][6]  = {
-    {WH,W,H,H,WH,W},
-    {W,H,H,WH,W,WH},      // Same as blues major scale
-    {H,H,WH,W,WH,W},
-    {H,WH,W,WH,W,H},
-    {WH,W,WH,W,H,H},
-    {W,WH,W,H,H,WH}
-};
-
-/*
- * Major Pentatonic  5 note scale
- */
- uint8_t  pentatonic[5]  = {
-    W,W,WH,W,WH
-};
-
-/*
- * Minor Pentatonic  5 note scale
- */
- uint8_t  minor_pentatonic[5]  = {
-    WH,W,W,WH,W
-};
-
-/*
- * Evey embedded program needs a
- * a piece of dead beef
- */
- uint8_t  deadbeef[4]  = {
-    0xde,0xad,0xbe,0xef,
-};
-
-
 struct MidiNotes 
 {
 	uint8_t note; 
@@ -235,7 +31,7 @@ struct MidiNotes
  */ 
 
 // Constructors 
-Scale::Scale(enum scaleKinds kindOfScale, uint8_t modeOf) {
+Scale::Scale(ScaleKinds kindOfScale, uint8_t modeOf) {
 	int i; 
 	int tmp; 
 
@@ -261,7 +57,7 @@ bool Scale::SetMode(uint8_t modeOf) {
 }
 
 
-bool Scale::SetScale(enum scaleKinds kindOfScale) {
+bool Scale::SetScale(ScaleKinds kindOfScale) {
     int i;
     int tmp;
 
@@ -273,10 +69,10 @@ bool Scale::SetScale(enum scaleKinds kindOfScale) {
     modes = 0;
     
     switch(kindOfScale) {
-        case MAJOR:
+        case Scale::ScaleKinds::MAJOR:
             ptrToScale = &major_s[mode][0];
             modes = 7;
-            scale = MAJOR;
+            scale = Scale::ScaleKinds::MAJOR;
             scaleName = "Major";
             switch (Scale::mode) {
                 case 0:
@@ -306,10 +102,10 @@ bool Scale::SetScale(enum scaleKinds kindOfScale) {
                     
             }
             break;
-        case MINOR:
+        case Scale::ScaleKinds::MINOR:
             ptrToScale = &minor_s[mode][0];
             modes = 7;
-            scale = MINOR;
+            scale = Scale::ScaleKinds::MINOR;
             scaleName = "Minor";
             switch (Scale::mode) {
                 case 0:
@@ -338,10 +134,10 @@ bool Scale::SetScale(enum scaleKinds kindOfScale) {
                     break;
             }
             break;
-        case MELODIC_MINOR:
+        case Scale::ScaleKinds::MELODIC_MINOR:
             ptrToScale = &melodic_minor[mode][0];
             modes = 7;
-            scale = MELODIC_MINOR;
+            scale = Scale::ScaleKinds::MELODIC_MINOR;
             scaleName = "Melodic minor";
             switch (Scale::mode) {
                 case 0:
@@ -371,10 +167,10 @@ bool Scale::SetScale(enum scaleKinds kindOfScale) {
             }
             
             break;
-        case HARMONIC_MINOR:
+        case Scale::ScaleKinds::HARMONIC_MINOR:
             ptrToScale = &harmonic_minor[mode][0];
             modes = 7;
-            scale = HARMONIC_MINOR;
+            scale = Scale::ScaleKinds::HARMONIC_MINOR;
             scaleName = "Harmonic minor";
             switch (Scale::mode) {
                 case 0:
@@ -404,112 +200,112 @@ bool Scale::SetScale(enum scaleKinds kindOfScale) {
             }
             break;
         // No modes in these ones
-        case GYPSY:
+        case Scale::ScaleKinds::GYPSY:
             notes = 7;
             ptrToScale = &gypsy[0];
-            scale = GYPSY;
+            scale = Scale::ScaleKinds::GYPSY;
             scaleName = "Gypsy";
             break;
-        case SYMETRICAL:
+        case Scale::ScaleKinds::SYMETRICAL:
             ptrToScale = &symetrical[0];
-            scale = SYMETRICAL;
+            scale = Scale::ScaleKinds::SYMETRICAL;
             scaleName = "Symetrical";
             break;
-        case ENIGMATIC:
+        case Scale::ScaleKinds::ENIGMATIC:
             ptrToScale = &enigmatic[0];
-            scale = ENIGMATIC;
+            scale = Scale::ScaleKinds::ENIGMATIC;
             scaleName = "Enigmatic";
             break;
-        case ARABIAN:
+        case Scale::ScaleKinds::ARABIAN:
             ptrToScale = &arabian[0];
-            scale = ARABIAN;
+            scale = Scale::ScaleKinds::ARABIAN;
             scaleName = "Arabian";
             break;
-        case HUNGARIAN:
+        case Scale::ScaleKinds::HUNGARIAN:
             ptrToScale = &hungarian[0];
-            scale = HUNGARIAN;
+            scale = Scale::ScaleKinds::HUNGARIAN;
             scaleName = "Hungarian";
             break;
         // These scales have 6 notes
-        case WHOLE_TONE:
+        case Scale::ScaleKinds::WHOLE_TONE:
             notes = 6;
             ptrToScale = &whole_tone[0];
-            scale = WHOLE_TONE;
+            scale = Scale::ScaleKinds::WHOLE_TONE;
             scaleName = "Whole tone";
             break;
         // Augmented has two modes not sure what to call
         // the second one
-        case AUGMENTED:
+        case Scale::ScaleKinds::AUGMENTED:
             notes = 6;
             modes = 2;
             ptrToScale = &augmented[mode][0];
-            scale = AUGMENTED;
+            scale = Scale::ScaleKinds::AUGMENTED;
             scaleName = "Augmented";
             break;
-        case BLUES_MAJOR:
+        case Scale::ScaleKinds::BLUES_MAJOR:
             notes = 6;
             ptrToScale = &blues_major[0];
-            scale = BLUES_MAJOR;
+            scale = Scale::ScaleKinds::BLUES_MAJOR;
             scaleName = "Blues major";
             break;
         // Blues minor has modes I guess...
-        case BLUES_MINOR:
+        case Scale::ScaleKinds::BLUES_MINOR:
             notes = 6;
             modes = 6;
             if (mode >= 6){
                 mode = 0;
             }
             ptrToScale = &blues_minor[mode][0];
-            scale = BLUES_MINOR;
+            scale = Scale::ScaleKinds::BLUES_MINOR;
             scaleName = "Blues minor";
             break;
         // These scales have 5 notes
-        case PENTATONIC:
+        case Scale::ScaleKinds::PENTATONIC:
             notes = 5;
             ptrToScale = &pentatonic[0];
-            scale = PENTATONIC;
+            scale = Scale::ScaleKinds::PENTATONIC;
             scaleName = "Pentatonic";
             break;
-        case MINOR_PENTATONIC:
+        case Scale::ScaleKinds::MINOR_PENTATONIC:
             notes = 5;
             ptrToScale = &minor_pentatonic[0];
-            scale = MINOR_PENTATONIC;
+            scale = Scale::ScaleKinds::MINOR_PENTATONIC;
             scaleName = "Minor Pentatonic";
             break;
         // 12 Notes is the max (in our Western system)
-        case CHROMATIC:
+        case Scale::ScaleKinds::CHROMATIC:
             notes = 12;
             ptrToScale = &chromatic[0];
-            scale = CHROMATIC;
+            scale = Scale::ScaleKinds::CHROMATIC;
             scaleName = "Chromatic";
             break;
         // 8 note keys
-        case OCTATONIC:
+        case Scale::ScaleKinds::OCTATONIC:
             notes = 8;
             modes = 2;
             if (mode >= 2) {
                 mode = 0;
             }
             ptrToScale = &octatonic[mode][0];
-            scale = OCTATONIC;
+            scale = Scale::ScaleKinds::OCTATONIC;
             scaleName = "Octatonic";
             break;
-        case DOMINANT_DIMINISHED:
+        case Scale::ScaleKinds::DOMINANT_DIMINISHED:
             notes = 8;
             // ptrToScale = &dominant_diminished[0];
             // Dominant dim is the same as the first mode of the
             // octatonic so we could also do the below
             ptrToScale = &octatonic[0][0];
-            scale = DOMINANT_DIMINISHED;
+            scale = Scale::ScaleKinds::DOMINANT_DIMINISHED;
             scaleName = "Dominant Diminished";
             break;
-        case DIMINISHED:
+        case Scale::ScaleKinds::DIMINISHED:
             notes = 8;
             // ptrToScale = &dominant_diminished[0];
             // dim is the same as the second mode of the
             // octatonic so we could also do the below
             ptrToScale = &octatonic[1][0];
-            scale = DIMINISHED;
+            scale = Scale::ScaleKinds::DIMINISHED;
             scaleName = "Diminished";
             break;
         default:
@@ -654,7 +450,7 @@ const std::string Scale::NoteToText(uint8_t midinote,
 /** Chord implements chords and inversions
   */
 Chord::Chord(Scale *scl,
-             chordKinds KindOfChord,
+             Kinds KindOfChord,
              uint8_t rootnote) {
     int i, j;
     uint8_t nte = rootnote;
