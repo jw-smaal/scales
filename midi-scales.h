@@ -2,7 +2,7 @@
  * @file midi-scales.hpp 
  * @author Jan-Willem Smaal <usenet@gispen.org> 
  * @date 3/9/2020 
- * @copyright BSD 
+ * @copyright APACHE-2.0
  */
 #ifndef __midi_scales_h_hpp
 #define __midi_scales_h_hpp 
